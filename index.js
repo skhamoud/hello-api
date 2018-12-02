@@ -4,16 +4,9 @@ const { URL, URLSearchParams } = require('url');
 const { StringDecoder } = require('string_decoder');
 const fs = require('fs');
 const config = require('./config');
+const router = require('./router');
 
 const { httpPort, httpsPort } = config;
-const router = {
-	sample(data, callback) {
-		callback(200, { message: 'success' });
-	},
-	notFound(data, callback) {
-		callback(404, { message: 'Not Found' });
-	}
-};
 
 const httpServer = http.createServer(serversHandler);
 httpServer.listen(httpPort, function() {
